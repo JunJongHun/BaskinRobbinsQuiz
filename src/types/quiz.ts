@@ -9,3 +9,7 @@ export type QUIZ_LIST_TYPE = {
     answer: number;
   };
 };
+
+export type UserAnswerType = {
+  [key: string]: string;
+};
