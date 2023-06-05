@@ -1,8 +1,8 @@
 import { PRECAUTION_LIST } from '../constants/text';
-
+import { NavLink } from 'react-router-dom';
 function MainPage() {
   return (
-    <section className="flex flex-col items-center h-screen gap-8 pt-32 px-4 ">
+    <section className="flex flex-col items-center gap-8 pt-32 px-4 ">
       <article className="flex flex-col gap-6">
         <h3>2023년 베스킨라빈스 능력 시험</h3>
         <h1 className="text-3xl m-auto">베라 탐구 영역</h1>
@@ -33,20 +33,14 @@ function MainPage() {
           ))}
         </ul>
       </article>
-      <button className=" text-white bg-pink-500 -mt-8 w-full h-11 ">
+      <NavLink
+        className="flex justify-center items-center text-white bg-pink-500 -mt-8 w-full h-11 "
+        to={'/quiz'}
+      >
         시험 시작하기
-      </button>
+      </NavLink>
 
       <p>수험생 여러분 모두 수고하셨습니다.</p>
-
-      <article className="flex items-center gap-4 h-7 -ml-10">
-        <img className="w-7" src="/src/assets/Icon.png" alt="베라 아이콘" />
-        <img
-          className=" w-48 h-6"
-          src="/src/assets/BaskinRobbinsTitle.png"
-          alt="베라 영문 이름"
-        />
-      </article>
     </section>
   );
 }

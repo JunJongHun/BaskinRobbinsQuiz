@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from './components/layout';
+import Layout from './components/Layout';
 import MainPage from './pages/MainPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: 'quiz/:number',
+        path: 'quiz',
         element: <QuizPage />,
       },
       {
