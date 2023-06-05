@@ -12,7 +12,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'vocabulary',
     points: 8,
     question: '다음 중 아이스크림 표기가 알맞지 않은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}1.png`,
     choice: [
       { id: 1, option: '엄마는 외계인' },
       { id: 2, option: '아몬드 봉봉' },
@@ -27,7 +27,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'vocabulary',
     points: 8,
     question: '다음 중 아이스크림 표기가 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}2.png`,
     choice: [
       { id: 1, option: '슈팅소다' },
       { id: 2, option: '뉴욕 인 치즈케이크' },
@@ -42,7 +42,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'vocabulary',
     points: 9,
     question: '다음 중 베스킨라빈스 표기로 적절한 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}3.png`,
     choice: [
       { id: 1, option: 'Baskin Rabbins' },
       { id: 2, option: 'Baskins Robins' },
@@ -57,7 +57,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'cogitation',
     points: 8,
     question: '다음 중 싱글레귤러 가격으로 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}4.png`,
     choice: [
       { id: 1, option: '3,600원' },
       { id: 2, option: '3,500원' },
@@ -72,7 +72,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'cogitation',
     points: 8,
     question: '다음 중 파인트(세가지 맛) 가격으로 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}5.png`,
     choice: [
       { id: 2, option: '8,900원' },
       { id: 1, option: '8,990원' },
@@ -87,7 +87,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'cogitation',
     points: 9,
     question: '파인트의 맛 개수 더하기 패밀리 맛 개수의 값을 구하시오.',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}6.png`,
     choice: [
       { id: 1, option: '6개' },
       { id: 2, option: '7개' },
@@ -102,7 +102,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'intelligence',
     points: 8,
     question: '다음 중 칼로리가 가장 높은 아이스크림은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}7.png`,
     choice: [
       { id: 1, option: '엄마는 외계인' },
       { id: 2, option: '아몬드 봉봉' },
@@ -118,7 +118,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     points: 8,
     question:
       '다음 중 인기가 가장 많은 아이스크림은 무엇인가요? (2023년 4월 기준)',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}8.png`,
     choice: [
       { id: 1, option: '슈팅스타' },
       { id: 2, option: '엄마는 외계인' },
@@ -133,7 +133,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'intelligence',
     points: 9,
     question: '다음 중 사이즈 비교한 것으로 옳은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}9.png`,
     choice: [
       { id: 1, option: '쿼터 > 패밀리' },
       { id: 2, option: '쿼터 > 패밀리' },
@@ -148,7 +148,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'observation',
     points: 8,
     question: '다음 아이스크림 명칭으로 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}10.png`,
     choice: [
       { id: 1, option: '슈팅스타' },
       { id: 2, option: '바람과 함께 사라지다' },
@@ -163,7 +163,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'observation',
     points: 8,
     question: '다음 아이스크림의 명칭으로 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}11.png`,
     choice: [
       { id: 1, option: '벅스 버디버디 당근당근' },
       { id: 2, option: '벅스 버니버니 당근당근' },
@@ -179,7 +179,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     type: 'observation',
     points: 9,
     question: '다음 아이스크림의 명칭으로 알맞은 것은 무엇인가요?',
-    imageUrl: `${BASE_URL}IceCream.png`,
+    imageUrl: `${BASE_URL}12.png`,
     choice: [
       { id: 1, option: '초코나무 숲' },
       { id: 2, option: '엄마는 외계인' },
