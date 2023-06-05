@@ -4,6 +4,7 @@ import { QUIZ_LIST_TYPE } from '../types/quiz';
 const BASE_URL = '/src/assets/quiz/';
 
 export const QUIZ_MAX_COUNT = 12;
+export const QUIZ_MAX_MINUTE = 5 * 60;
 
 export const QUIZ_LIST: QUIZ_LIST_TYPE = {
   '1': {
@@ -123,7 +124,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
       { id: 2, option: '엄마는 외계인' },
       { id: 3, option: '아몬드 봉봉' },
       { id: 4, option: '이상한 나라의 솜사탕' },
-      { id: 5, option: '뉴옥 치즈케이크' },
+      { id: 5, option: '뉴욕 치즈케이크' },
     ],
     answer: 2,
   },
@@ -131,16 +132,16 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
     quizId: 9,
     type: 'intelligence',
     points: 9,
-    question: '다음 중 사이즈를 순서대로 표기한 것으로 옳은 것은 무엇인가요?',
+    question: '다음 중 사이즈 비교한 것으로 옳은 것은 무엇인가요?',
     imageUrl: `${BASE_URL}IceCream.png`,
     choice: [
-      { id: 1, option: '파인트 > 쿼터 > 패밀리 > 하프갤런' },
-      { id: 2, option: '파인트 > 하프갤런 > 쿼터 > 패밀리' },
-      { id: 3, option: '쿼터 > 파인트 > 패밀리 > 하프갤런' },
-      { id: 4, option: '쿼트 > 파인트 > 하프갤런 > 패밀리' },
-      { id: 5, option: '파인트 > 쿼터 > 하프갤런 > 패밀리' },
+      { id: 1, option: '쿼터 > 패밀리' },
+      { id: 2, option: '쿼터 > 패밀리' },
+      { id: 3, option: '패밀리 > 하프갤런' },
+      { id: 4, option: '파인트 < 쿼터 ' },
+      { id: 5, option: '파인트 > 패밀리' },
     ],
-    answer: 1,
+    answer: 4,
   },
   '10': {
     quizId: 10,
@@ -152,7 +153,7 @@ export const QUIZ_LIST: QUIZ_LIST_TYPE = {
       { id: 1, option: '슈팅스타' },
       { id: 2, option: '바람과 함께 사라지다' },
       { id: 3, option: '레인보우 샤베트' },
-      { id: 4, option: '뉴옥 치즈케이크' },
+      { id: 4, option: '뉴욕 치즈케이크' },
       { id: 5, option: '이상한 나라의 솜사탕' },
     ],
     answer: 5,
