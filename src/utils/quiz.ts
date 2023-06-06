@@ -1,4 +1,4 @@
-import { QUIZ_LIST_TYPE, UserAnswerType } from '../types/quiz';
+import { QuizListTYPE, UserAnswerType } from '../types/quiz';
 
 export const getTypeToKorean = (type: string): string => {
   switch (type) {
@@ -39,7 +39,7 @@ export const calculatePercentage = (numerator: number, denominator: number) => {
 
 export const calculateScore = (
   userAnswer: UserAnswerType,
-  quizList: QUIZ_LIST_TYPE,
+  quizList: QuizListTYPE,
 ) => {
   let total = 0;
   let vocabulary = 0;
