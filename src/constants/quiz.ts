@@ -1,4 +1,4 @@
-import { QUIZ_LIST_TYPE } from '../types/quiz';
+import { QuizListTYPE } from '../types/quiz';
 
 //이미지 경로 베이스 상수화
 const BASE_URL = '/src/assets/quiz/';
@@ -6,7 +6,7 @@ const BASE_URL = '/src/assets/quiz/';
 export const QUIZ_MAX_COUNT = 12;
 export const QUIZ_MAX_MINUTE = 5 * 60;
 
-export const QUIZ_LIST: QUIZ_LIST_TYPE = {
+export const QUIZ_LIST: QuizListTYPE = {
   '1': {
     quizId: 1,
     type: 'vocabulary',
