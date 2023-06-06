@@ -9,30 +9,47 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-const data = [
-  {
-    name: '어휘력',
-    응시자: 17,
-    전체평균: 17,
-  },
-  {
-    name: '사고력',
-    응시자: 25,
-    전체평균: 17,
-  },
-  {
-    name: '정보력',
-    응시자: 25,
-    전체평균: 25,
-  },
-  {
-    name: '관찰력',
-    응시자: 17,
-    전체평균: 25,
-  },
-];
+type ChartPropsType = {
+  userData: {
+    name: string;
+    total: number;
+    vocabulary: number;
+    cogitation: number;
+    intelligence: number;
+    observation: number;
+  };
+  avgData: {
+    total_avg: number;
+    vocabulary_avg: number;
+    cogitation_avg: number;
+    intelligence_avg: number;
+    observation_avg: number;
+  };
+};
 
-function Chart() {
+function Chart({ userData, avgData }: ChartPropsType) {
+  const data = [
+    {
+      name: '어휘력',
+      응시자: userData.vocabulary,
+      전체평균: avgData.vocabulary_avg,
+    },
+    {
+      name: '사고력',
+      응시자: userData.cogitation,
+      전체평균: avgData.cogitation_avg,
+    },
+    {
+      name: '정보력',
+      응시자: userData.intelligence,
+      전체평균: avgData.intelligence_avg,
+    },
+    {
+      name: '관찰력',
+      응시자: userData.observation,
+      전체평균: avgData.observation_avg,
+    },
+  ];
   return (
     <ResponsiveContainer height={300}>
       <BarChart
