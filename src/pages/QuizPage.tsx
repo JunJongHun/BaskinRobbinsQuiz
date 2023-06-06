@@ -3,9 +3,11 @@ import { QUIZ_MAX_COUNT, QUIZ_LIST } from '../constants/quiz';
 import { calculateScore, getTypeToKorean } from '../utils/quiz';
 import Timer from '../components/Timer';
 import { UserAnswerType } from '../types/quiz';
+import { useNavigate } from 'react-router-dom';
 
 function QuizPage() {
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
   const { type, question, points, imageUrl, choice } = QUIZ_LIST[page];
   const [userAnswer, setUserAnswer] = useState<UserAnswerType>({
     A1: '',
@@ -97,7 +99,8 @@ function QuizPage() {
           <button
             className=" bg-pink-500 w-20 h-8  text-white rounded-3xl "
             onClick={() => {
-              console.log(calculateScore(userAnswer, QUIZ_LIST));
+              const userData = calculateScore(userAnswer, QUIZ_LIST);
+              navigate('/result', { state: userData });
             }}
           >
             제출
