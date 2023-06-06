@@ -1,4 +1,4 @@
-export type QUIZ_LIST_TYPE = {
+export type QuizListTYPE = {
   [key: string]: {
     quizId: number;
     type: string;
