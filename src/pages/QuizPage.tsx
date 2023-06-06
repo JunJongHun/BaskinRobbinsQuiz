@@ -3,9 +3,11 @@ import { QUIZ_MAX_COUNT, QUIZ_LIST } from '../constants/quiz';
 import { calculateScore, getTypeToKorean } from '../utils/quiz';
 import Timer from '../components/Timer';
 import { UserAnswerType } from '../types/quiz';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function QuizPage() {
+  const location = useLocation();
+  console.log('location', location);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const { type, question, points, imageUrl, choice } = QUIZ_LIST[page];
@@ -100,7 +102,9 @@ function QuizPage() {
             className=" bg-pink-500 w-20 h-8  text-white rounded-3xl "
             onClick={() => {
               const userData = calculateScore(userAnswer, QUIZ_LIST);
-              navigate('/result', { state: userData });
+              navigate('/result', {
+                state: { ...userData, ...location.state },
+              });
             }}
           >
             제출

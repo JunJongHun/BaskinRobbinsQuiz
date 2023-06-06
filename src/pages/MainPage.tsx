@@ -1,6 +1,14 @@
+import { useRef, useState } from 'react';
 import { PRECAUTION_LIST } from '../constants/text';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function MainPage() {
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
+  const ref = useRef<HTMLInputElement>(null);
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
   return (
     <section className="flex flex-col items-center gap-8 pt-32 px-4 ">
       <article className="flex flex-col gap-6">
@@ -12,7 +20,13 @@ function MainPage() {
           <div className="flex justify-center items-center w-1/3 h-full  border-r border-black">
             이름
           </div>
-          <input className=" w-2/3 px-2 outline-none bg-inherit" type="text" />
+          <input
+            className=" w-2/3 px-2 outline-none bg-inherit"
+            type="text"
+            ref={ref}
+            value={name}
+            onChange={handleNameChange}
+          />
         </div>
         <div className=" w-6/12 flex border border-black">
           <div className="flex justify-center items-center w-2/5 border-r border-black">
@@ -33,12 +47,15 @@ function MainPage() {
           ))}
         </ul>
       </article>
-      <NavLink
+      <button
         className="flex justify-center items-center text-white bg-pink-500 -mt-8 w-full h-11 "
-        to={'/quiz'}
+        onClick={() => {
+          if (name === '') ref.current?.focus();
+          else navigate('/quiz', { state: { name } });
+        }}
       >
         시험 시작하기
-      </NavLink>
+      </button>
 
       <p>수험생 여러분 모두 수고하셨습니다.</p>
     </section>
