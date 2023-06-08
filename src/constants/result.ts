@@ -16,7 +16,7 @@ export const RATING_LIST: RatingType[] = [
   { grade: 9 },
 ];
 
-export const RATING_RANGE_LIST_MOCKDATA: RatingRangeType[] = [
+export const RATING_RANGE_LIST: RatingRangeType[] = [
   { grade: 1, start: 100, end: 90 },
   { grade: 2, start: 89, end: 80 },
   { grade: 3, start: 79, end: 70 },
@@ -25,7 +25,7 @@ export const RATING_RANGE_LIST_MOCKDATA: RatingRangeType[] = [
   { grade: 6, start: 49, end: 40 },
   { grade: 7, start: 39, end: 30 },
   { grade: 8, start: 29, end: 20 },
-  { grade: 9, start: 19, end: 10 },
+  { grade: 9, start: 19, end: 0 },
 ];
 
 export const RATING_PERCENTAGE_LIST: RatingPercentageType[] = [
