@@ -2,8 +2,7 @@ import { rest } from 'msw';
 
 export const handlers = [
   // 응시자 정보 보내기
-  rest.post('/users', (req, res, ctx) => {
-    console.log(req.body);
+  rest.get('/info', (req, res, ctx) => {
     return res(
       // Respond with a 200 status code
       ctx.status(200),
@@ -11,7 +10,7 @@ export const handlers = [
   }),
 
   // 전제 응시자 점수 평균 조회
-  rest.get('/scores', (req, res, ctx) => {
+  rest.get('/average', (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -25,20 +24,29 @@ export const handlers = [
   }),
 
   // 등급컷 조회
-  rest.get('/grades', (req, res, ctx) => {
+  rest.get('/percentage', (req, res, ctx) => {
     return res(
       ctx.status(200),
-      ctx.json([
-        { grade: 1, start: 100, end: 90 },
-        { grade: 2, start: 89, end: 80 },
-        { grade: 3, start: 79, end: 70 },
-        { grade: 4, start: 69, end: 60 },
-        { grade: 5, start: 59, end: 50 },
-        { grade: 6, start: 49, end: 40 },
-        { grade: 7, start: 39, end: 30 },
-        { grade: 8, start: 29, end: 20 },
-        { grade: 9, start: 19, end: 10 },
-      ]),
+      ctx.json({
+        '1': 11.24,
+        '2': 10.81,
+        '3': 9.74,
+        '4': 10.09,
+        '5': 10.31,
+        '6': 9.59,
+        '7': 10.59,
+        '8': 8.3,
+        '9': 19.33,
+      }),
+    );
+  }),
+
+  // 응시자 수 조회
+  rest.get('/users', (req, res, ctx) => {
+    return res(
+      // Respond with a 200 status code
+      ctx.status(200),
+      ctx.json({ total_users: '1397' }),
     );
   }),
 ];
