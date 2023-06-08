@@ -1,14 +1,10 @@
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Chart from '../components/Chart';
-import {
-  RATING_LIST,
-  RATING_PERCENTAGE_LIST,
-  RATING_RANGE_LIST_MOCKDATA,
-} from '../constants/result';
-import { AvgScoreType, RatingRangeType } from '../types/result';
+import { RATING_LIST, RATING_RANGE_LIST } from '../constants/result';
+import { AvgScoreType } from '../types/result';
 import { useEffect, useState } from 'react';
-import { getGradeRange, getScoreAvg } from '../apis/result';
-import { calculateUserRating, getCurrentDate } from '../utils/result';
+import { getPercentage, getScoreAvg } from '../apis/result';
+import { calculateUserRating } from '../utils/result';
 
 function ResultPage() {
   const { state: userData } = useLocation();
@@ -20,25 +16,45 @@ function ResultPage() {
     observation_avg: 0,
   });
 
-  const [ratingRangeList, setRatingRangeList] = useState<RatingRangeType[]>(
-    RATING_RANGE_LIST_MOCKDATA,
-  );
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const [percentageList, setPercentageList] = useState({
+    '1': '0',
+    '2': '0',
+    '3': '0',
+    '4': '0',
+    '5': '0',
+    '6': '0',
+    '7': '0',
+    '8': '0',
+    '9': '0',
+  });
 
   useEffect(() => {
-    getScoreAvg().then((res) => {
-      setAvgData(res.data);
-    });
-  }, []);
-
-  useEffect(() => {
-    getGradeRange().then((res) => {
-      setRatingRangeList(res.data);
-    });
+    setIsLoading(true);
+    Promise.all([getScoreAvg(), getPercentage()])
+      .then((res) => {
+        setAvgData(res[0].data);
+        setPercentageList(res[1].data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+      });
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, [avgData]);
+
+  if (isLoading) {
+    return <div>로딩중</div>;
+  }
+
+  if (error) {
+    return <div>에러</div>;
+  }
 
   return (
     <section className="flex flex-col gap-5 pt-16 px-4">
@@ -48,7 +64,7 @@ function ResultPage() {
           등급은?
         </h5>
         <h1 className=" text-pink-500 text-4xl">
-          {calculateUserRating(userData.total, ratingRangeList)}등급
+          {calculateUserRating(userData.total, RATING_RANGE_LIST)}등급
         </h1>
         <div className=" text-xl  font-bold">내 점수</div>
         <div className=" text-pink-500 text-4xl">{userData.total}점</div>
@@ -57,7 +73,7 @@ function ResultPage() {
         <Chart userData={userData} avgData={avgData} />
       </article>
       <article>
-        <div>( {getCurrentDate()} )</div>
+        <div>( 절대평가 기준 )</div>
         <div className="grid grid-cols-3 border border-black p-4">
           <ul className="flex flex-col items-center gap-1">
             <div>등급</div>
@@ -69,7 +85,7 @@ function ResultPage() {
           </ul>
           <ul className="flex flex-col items-center gap-1">
             <div>등급컷</div>
-            {ratingRangeList.map((item) => (
+            {RATING_RANGE_LIST.map((item) => (
               <li key={item.grade}>
                 {item.start}~{item.end}
               </li>
@@ -77,21 +93,27 @@ function ResultPage() {
           </ul>
           <ul className="flex flex-col items-center gap-1">
             <div>비율</div>
-            {RATING_PERCENTAGE_LIST.map((item, i) => (
+            {Object.values(percentageList).map((percentage, i) => (
               <li
-                className={`text-center bg-gray-300 ${
-                  calculateUserRating(userData.total, ratingRangeList) ===
+                className={`flex justify-center text-center bg-gray-300 ${
+                  calculateUserRating(userData.total, RATING_RANGE_LIST) ===
                     i + 1 && 'text-white bg-pink-500'
                 }`}
                 key={i}
-                style={{ width: item.percentage * 5 + '%' }}
+                style={{ width: Number(percentage) * 4.5 + '%' }}
               >
-                {item.percentage}%
+                {percentage + '%'}
               </li>
             ))}
           </ul>
         </div>
       </article>
+      <NavLink
+        className="flex justify-center items-center bg-pink-500  h-12 mt-4 text-white rounded-3xl "
+        to={'/'}
+      >
+        테스트 다시하기
+      </NavLink>
     </section>
   );
 }

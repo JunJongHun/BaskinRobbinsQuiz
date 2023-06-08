@@ -4,10 +4,11 @@ import { calculateScore, getTypeToKorean } from '../utils/quiz';
 import Timer from '../components/Timer';
 import { UserAnswerType } from '../types/quiz';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import { postUserData } from '../apis/quiz';
 
 function QuizPage() {
   const location = useLocation();
-  console.log('location', location);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const { type, question, points, imageUrl, choice } = QUIZ_LIST[page];
@@ -30,7 +31,7 @@ function QuizPage() {
   const nextPage = () => setPage(page + 1);
 
   return (
-    <section className="flex flex-col items-center gap-8 pt-32 px-4 ">
+    <section className="flex flex-col items-center gap-4 pt-12 px-4 ">
       <article className="flex flex-col gap-6">
         <h3>2023년 베스킨라빈스 능력 시험</h3>
         <h1 className="text-3xl m-auto">{getTypeToKorean(type)}</h1>
@@ -44,12 +45,12 @@ function QuizPage() {
         <Timer />
       </article>
 
-      <article className="mt-4">
+      <article className="mt-6">
         <div>
           {page}. {question} [{points}점]
         </div>
         <img
-          className="w-11/12 h-72 m-auto my-4 py-2"
+          className="w-11/12 h-60 m-auto pb-8"
           src={imageUrl}
           alt="문제 이미지"
         />
@@ -100,8 +101,16 @@ function QuizPage() {
         ) : (
           <button
             className=" bg-pink-500 w-20 h-8  text-white rounded-3xl "
-            onClick={() => {
+            onClick={async () => {
+              const uuid = uuidv4();
               const userData = calculateScore(userAnswer, QUIZ_LIST);
+
+              await postUserData({
+                user_id: uuid,
+                name: location.state.name,
+                ...userData,
+              });
+
               navigate('/result', {
                 state: { ...userData, ...location.state },
               });

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PRECAUTION_LIST } from '../constants/text';
 import { useNavigate } from 'react-router-dom';
-import Counter from '../components/UserTotalCount';
+import Counter from '../components/Counter';
 
 function MainPage() {
   const [name, setName] = useState('');
