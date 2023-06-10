@@ -2,7 +2,7 @@ import { rest } from 'msw';
 
 export const handlers = [
   // 응시자 정보 보내기
-  rest.get('/info', (req, res, ctx) => {
+  rest.get('/info', (_, res, ctx) => {
     return res(
       // Respond with a 200 status code
       ctx.status(200),
@@ -10,7 +10,7 @@ export const handlers = [
   }),
 
   // 전제 응시자 점수 평균 조회
-  rest.get('/average', (req, res, ctx) => {
+  rest.get('/average', (_, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -24,7 +24,7 @@ export const handlers = [
   }),
 
   // 등급컷 조회
-  rest.get('/percentage', (req, res, ctx) => {
+  rest.get('/percentage', (_, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -42,7 +42,7 @@ export const handlers = [
   }),
 
   // 응시자 수 조회
-  rest.get('/users', (req, res, ctx) => {
+  rest.get('/users', (_, res, ctx) => {
     return res(
       // Respond with a 200 status code
       ctx.status(200),
