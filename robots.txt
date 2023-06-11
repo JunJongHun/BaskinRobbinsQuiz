@@ -1,3 +1,2 @@
-User-agent: *
-Allow:/
+User-agent: *Allow:/
 Sitemap:https://baskin31.netlify.app/sitemap.xml
