@@ -7,6 +7,21 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { postUserData } from '../apis/quiz';
 import CheckIcon from '../assets/check.png';
+import Quiz1 from '../assets/quiz/1.png';
+import Quiz2 from '../assets/quiz/2.png';
+import Quiz3 from '../assets/quiz/3.png';
+import Quiz4 from '../assets/quiz/4.png';
+import Quiz5 from '../assets/quiz/5.png';
+import Quiz6 from '../assets/quiz/6.png';
+import Quiz7 from '../assets/quiz/7.png';
+import Quiz8 from '../assets/quiz/8.png';
+import Quiz9 from '../assets/quiz/9.png';
+import Quiz10 from '../assets/quiz/10.png';
+import Quiz11 from '../assets/quiz/11.png';
+import Quiz12 from '../assets/quiz/12.png';
+
+const quizImage = [Quiz1, Quiz2, Quiz3, Quiz4, Quiz5, Quiz6, Quiz7, Quiz8, Quiz9, Quiz10, Quiz11, Quiz12  ];
+
 
 function QuizPage() {
   const location = useLocation();
@@ -52,7 +67,7 @@ function QuizPage() {
         </div>
         <img
           className="w-11/12 h-60 m-auto pb-8"
-          src={`/${page}.png`}
+          src={quizImage[page-1]}
           alt="문제 이미지"
         />
         <ul className=" grid grid-cols-2 gap-2">
