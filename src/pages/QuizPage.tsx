@@ -6,7 +6,7 @@ import { UserAnswerType } from '../types/quiz';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { postUserData } from '../apis/quiz';
-import CheckIcon from '../assets/Check.png';
+import CheckIcon from '../assets/check.png';
 
 function QuizPage() {
   const location = useLocation();
