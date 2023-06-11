@@ -14,7 +14,7 @@ import Quiz12 from '../assets/12.png';
 
 
 export const QUIZ_MAX_COUNT = 12;
-export const QUIZ_MAX_MINUTE = 5 * 60;
+export const QUIZ_MAX_MINUTE = 5* 60;
 
 export const QUIZ_LIST: QuizListTYPE = {
   '1': {

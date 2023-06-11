@@ -75,7 +75,7 @@ function QuizPage() {
             {QUIZ_MAX_COUNT} 문제
           </div>
         </div>
-        <Timer />
+        <Timer userAnswer = {userAnswer} name = { location.state.name}/>
       </article>
 
       <article className="mt-6">
