@@ -52,7 +52,7 @@ function QuizPage() {
         </div>
         <img
           className="w-11/12 h-60 m-auto pb-8"
-          src={imageUrl}
+          src={`/${page}.png`}
           alt="문제 이미지"
         />
         <ul className=" grid grid-cols-2 gap-2">
