@@ -7,12 +7,38 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { postUserData } from '../apis/quiz';
 import CheckIcon from '../assets/check.png';
+import Quiz1 from '../assets/1.png';
+import Quiz2 from '../assets/2.png';
+import Quiz3 from '../assets/3.png';
+import Quiz4 from '../assets/4.png';
+import Quiz5 from '../assets/5.png';
+import Quiz6 from '../assets/6.png';
+import Quiz7 from '../assets/7.png';
+import Quiz8 from '../assets/8.png';
+import Quiz9 from '../assets/9.png';
+import Quiz10 from '../assets/10.png';
+import Quiz11 from '../assets/11.png';
+import Quiz12 from '../assets/12.png';
 
 function QuizPage() {
+  const [quizImgList] = useState([
+    Quiz1,
+    Quiz2,
+    Quiz3,
+    Quiz4,
+    Quiz5,
+    Quiz6,
+    Quiz7,
+    Quiz8,
+    Quiz9,
+    Quiz10,
+    Quiz11,
+    Quiz12, 
+  ]);
   const location = useLocation();
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
-  const { type, question, points,  choice } = QUIZ_LIST[page];
+  const { type, question, points, choice } = QUIZ_LIST[page];
   const [userAnswer, setUserAnswer] = useState<UserAnswerType>({
     A1: '',
     A2: '',
@@ -30,6 +56,31 @@ function QuizPage() {
 
   const prePage = () => setPage(page - 1);
   const nextPage = () => setPage(page + 1);
+
+  // useEffect(() => {
+  //   // 이미지를 사전에 로드하는 함수
+  //   const preloadImage = (url:any) => {
+  //     return new Promise((resolve, reject) => {
+  //       const image = new Image();
+  //       image.src = url;
+  //       image.onload = resolve;
+  //       image.onerror = reject;
+  //     });
+  //   };
+
+  //   // 이미지 URL
+  //   const imageUrl = "/10.png";
+
+  //   // 이미지 사전 로딩
+  //   preloadImage(imageUrl)
+  //     .then(() => {
+  //       console.log("이미지가 사전에 로드되었습니다.");
+  //       // 이곳에서 필요한 로직을 추가하세요.
+  //     })
+  //     .catch((error) => {
+  //       console.error("이미지 로딩 중 오류가 발생했습니다:", error);
+  //     });
+  // }, []);
 
   return (
     <section className="flex flex-col items-center gap-4 pt-12 px-4 ">
@@ -52,7 +103,7 @@ function QuizPage() {
         </div>
         <img
           className="w-11/12 h-60 m-auto pb-8"
-          src={`/${page}.png`}
+          src={quizImgList[page - 1]}
           alt="문제 이미지"
         />
         <ul className=" grid grid-cols-2 gap-2">

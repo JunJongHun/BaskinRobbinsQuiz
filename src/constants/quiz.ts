@@ -1,16 +1,16 @@
 import { QuizListTYPE } from '../types/quiz';
-import Quiz1 from '../assets/quiz/1.png';
-import Quiz2 from '../assets/quiz/2.png';
-import Quiz3 from '../assets/quiz/3.png';
-import Quiz4 from '../assets/quiz/4.png';
-import Quiz5 from '../assets/quiz/5.png';
-import Quiz6 from '../assets/quiz/6.png';
-import Quiz7 from '../assets/quiz/7.png';
-import Quiz8 from '../assets/quiz/8.png';
-import Quiz9 from '../assets/quiz/9.png';
-import Quiz10 from '../assets/quiz/10.png';
-import Quiz11 from '../assets/quiz/11.png';
-import Quiz12 from '../assets/quiz/12.png';
+import Quiz1 from '../assets/1.png';
+import Quiz2 from '../assets/2.png';
+import Quiz3 from '../assets/3.png';
+import Quiz4 from '../assets/4.png';
+import Quiz5 from '../assets/5.png';
+import Quiz6 from '../assets/6.png';
+import Quiz7 from '../assets/7.png';
+import Quiz8 from '../assets/8.png';
+import Quiz9 from '../assets/9.png';
+import Quiz10 from '../assets/10.png';
+import Quiz11 from '../assets/11.png';
+import Quiz12 from '../assets/12.png';
 
 
 export const QUIZ_MAX_COUNT = 12;

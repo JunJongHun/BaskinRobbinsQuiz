@@ -3,6 +3,7 @@ import { PRECAUTION_LIST } from '../constants/text';
 import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
 
+
 function MainPage() {
   const [name, setName] = useState('');
   const navigate = useNavigate();
