@@ -12,7 +12,7 @@ function QuizPage() {
   const location = useLocation();
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
-  const { type, question, points, imageUrl, choice } = QUIZ_LIST[page];
+  const { type, question, points,  choice } = QUIZ_LIST[page];
   const [userAnswer, setUserAnswer] = useState<UserAnswerType>({
     A1: '',
     A2: '',
