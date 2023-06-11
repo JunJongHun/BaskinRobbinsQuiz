@@ -6,6 +6,7 @@ import { UserAnswerType } from '../types/quiz';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { postUserData } from '../apis/quiz';
+import CheckIcon from '../assets/Check.png';
 
 function QuizPage() {
   const location = useLocation();
@@ -70,7 +71,7 @@ function QuizPage() {
                 {userAnswer['A' + page] === String(index + 1) && (
                   <img
                     className=" absolute translate-x-1/4 -translate-y-1/2  w-8 h-6"
-                    src="/src/assets/check.png"
+                    src={CheckIcon}
                   />
                 )}
               </span>

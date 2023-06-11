@@ -12,8 +12,6 @@ import Quiz10 from '../assets/quiz/10.png';
 import Quiz11 from '../assets/quiz/11.png';
 import Quiz12 from '../assets/quiz/12.png';
 
-//이미지 경로 베이스 상수화
-const BASE_URL = '/src/assets/quiz/';
 
 export const QUIZ_MAX_COUNT = 12;
 export const QUIZ_MAX_MINUTE = 5 * 60;
