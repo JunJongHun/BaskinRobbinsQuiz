@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <article
-      className="flex justify-center mt-8 h-32 gap-4 -ml-4 hover:cursor-pointer"
+      className="flex justify-center mt-auto h-32 gap-4 -ml-4 hover:cursor-pointer"
       onClick={() => navigate('/')}
     >
       <img className="w-7 h-7" src={Icon} alt="베라 아이콘" />

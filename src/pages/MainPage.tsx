@@ -64,7 +64,7 @@ function MainPage() {
         시험 시작하기
       </button>
       <Counter />
-      <p className="  bg-zinc-300 py-2 border border-black w-full text-center">
+      <p className="mb-8  bg-zinc-300 py-2 border border-black w-full text-center">
         수험생 여러분 모두 수고하셨습니다.
       </p>
     </section>
