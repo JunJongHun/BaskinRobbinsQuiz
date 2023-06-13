@@ -5,7 +5,7 @@ import { AvgScoreType } from '../types/result';
 import { useEffect, useState } from 'react';
 import { getPercentage, getScoreAvg } from '../apis/result';
 import { calculateUserRating } from '../utils/result';
-
+import Loading from '../assets/loading.gif';
 function ResultPage() {
   const { state: userData } = useLocation();
   const [avgData, setAvgData] = useState<AvgScoreType>({
@@ -49,7 +49,7 @@ function ResultPage() {
   }, [avgData]);
 
   if (isLoading) {
-    return <div>로딩중</div>;
+    return <img className="mx-auto" src={Loading} alt="베라 아이콘" />;
   }
 
   if (error) {
@@ -109,7 +109,7 @@ function ResultPage() {
         </div>
       </article>
       <NavLink
-        className="flex justify-center items-center bg-pink-500  h-12 mt-4 text-white rounded-3xl "
+        className="mb-8 flex justify-center items-center bg-pink-500  h-12 mt-4 text-white rounded-3xl "
         to={'/'}
       >
         테스트 다시하기

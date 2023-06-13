@@ -8,10 +8,16 @@ import { v4 as uuidv4 } from 'uuid';
 import { postUserData } from '../apis/quiz';
 import CheckIcon from '../assets/check.png';
 
+function preloadImage(src:string) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = resolve;
+    img.onerror = reject;
+  });
+}
 
 function QuizPage() {
-  const [quizImgList,setQuizImgList] = useState<string[]>([
-  ]);
   const location = useLocation();
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
@@ -35,33 +41,24 @@ function QuizPage() {
   const nextPage = () => setPage(page + 1);
 
   useEffect(() => {
-    // 이미지를 사전에 로드하는 함수
-    const preloadImage = (url:any) => {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.src = url;
-        image.onload = resolve;
-        image.onerror = reject;
-      });
+    const loadImages = async () => {
+      const imageList = ['/1.png', '/2.png', '/3.png', '/4.png', '/5.png', '/6.png', '/7.png', '/8.png', '/9.png', '/10.png', '/11.png', '/12.png'];
+      for (const src of imageList) {
+        try {
+          await preloadImage(src);
+          console.log(`${src} has been loaded`);
+        } catch (err) {
+          console.error(`Failed to load ${src}`, err);
+        }
+      }
     };
 
-    // 이미지 URL
-    const imageUrl = ['/1.png', '/2.png', "/3.png", "/4.png", "/5.png", "/6.png", "/7.png", "/8.png", "/9.png", "/10.png", "/11.png", "/12.png"];
-
-    // 이미지 사전 로딩
-    for (const url of imageUrl) {
-      preloadImage(url)
-      .then(() => {
-        console.log("이미지가 사전에 로드되었습니다.");
-        console.log(url);
-        setQuizImgList((prev) => [...prev, url]);
-      })
-      .catch((error) => {
-        console.error("이미지 로딩 중 오류가 발생했습니다:", error);
-      });  
-    }
+    
+    loadImages();
+  
     
   }, []);
+  
 
   return (
     <section className="flex flex-col items-center gap-4 pt-12 px-4 ">
@@ -78,19 +75,19 @@ function QuizPage() {
         <Timer userAnswer = {userAnswer} name = { location.state.name}/>
       </article>
 
-      <article className="mt-6">
+      <article className="mt-6 w-full">
         <div>
           {page}. {question} [{points}점]
         </div>
         <img
-          className="w-11/12 h-60 m-auto pb-8"
-          src={quizImgList[page - 1]}
+          className="w-11/12 h-60 m-auto pb-8  object-contain "
+          src={`${page}.png`}
           alt="문제 이미지"
         />
         <ul className=" grid grid-cols-2 gap-2">
           {choice.map(({ id, option }, index) => (
             <li
-              className="flex items-center"
+              className="flex items-center cursor-pointer"
               key={id}
               onClick={() => {
                 const newUserAnswer = { ...userAnswer };
